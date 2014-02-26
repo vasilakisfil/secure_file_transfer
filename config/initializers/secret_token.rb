@@ -9,7 +9,7 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-
+=begin
 def secure_token
   token_file = Rails.root.join('.secret')
   if File.exist?(token_file)
@@ -22,5 +22,11 @@ def secure_token
     token
   end
 end
-
-SecureFileTransfer::Application.config.secret_key_base = secure_token
+=end
+if !Rails.env.production?
+  token_file = Rails.root.join('.secret')
+  secure_token = File.read(token_file).chomp
+  SecureFileTransfer::Application.config.secret_key_base = secure_token
+else
+  SecureFileTransfer::Application.config.secret_key_base = ENV['SECURE_TOKEN']
+end

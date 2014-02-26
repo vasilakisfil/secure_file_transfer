@@ -1,4 +1,5 @@
 SecureFileTransfer::Application.routes.draw do
+  root "static_pages#login"
   get "static_pages/login"
   get "static_pages/logout"
   get "static_pages/help"
