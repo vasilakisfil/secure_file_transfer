@@ -1,2 +1,15 @@
-<h1>StaticPages#login</h1>
-<p>Find me in app/views/static_pages/login.html.erb</p>
+<br />
+<br />
+<div class="row">
+  <div class="small-6 small-centered columns">
+    <%= form_for html: {class: "row"} do |f| %>
+      <%= f.label :username %><br />
+      <%= f.text_field :username %><br />
+      <%= f.label :password %><br />
+      <%= f.text_field :password %><br />
+      <%= f.label :two_factor_authentication %><br />
+      <%= f.text_field :two_factor_authentication %><br />
+      <%= f.submit "Create", class: "button" %>
+    <% end %>
+  </div>
+</div>

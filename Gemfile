@@ -30,6 +30,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'foundation-rails'
+
 group :test, :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
