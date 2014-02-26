@@ -9,4 +9,18 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SecureFileTransfer::Application.config.secret_key_base = '0d729b8f60fb44491d395ff46651e8c56243963a4a4d66eb0d357076bfa1b1f0b7e695a4c6d4a99d25fd96053a497fa2acb8b2c562531e5ec9933dd2346ef508'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+SecureFileTransfer::Application.config.secret_key_base = secure_token
