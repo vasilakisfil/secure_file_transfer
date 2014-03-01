@@ -11,6 +11,10 @@ describe User do
 
   subject { @user }
 
+  it "has a valid factory" do
+    expect(FactoryGirl.build(:user)).to be_valid
+  end
+
   it "responds to properties" do
     expect(@user).to respond_to(:username)
     expect(@user).to respond_to(:name)

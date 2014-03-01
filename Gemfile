@@ -38,6 +38,8 @@ group :test, :development do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'faker'
 end
 group :production do
   gem 'pg'

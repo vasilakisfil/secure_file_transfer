@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       user = User.find_by(username: params[:session][:username])
       if !user
         user = create_new_user(params[:session][:username])
-        puts user
         flash[:login] = "Welcome new user #{user.username}"
         redirect_to user
       else
