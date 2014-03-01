@@ -2,14 +2,14 @@
 <br />
 <div class="row">
   <div class="small-6 small-centered columns">
-    <%= form_for html: {class: "row"} do |f| %>
+    <%= form_for(:session, url: sessions_path, method: 'post') do |f| %>
       <%= f.label :username %><br />
       <%= f.text_field :username %><br />
       <%= f.label :password %><br />
       <%= f.text_field :password %><br />
       <%= f.label :two_factor_authentication %><br />
       <%= f.text_field :two_factor_authentication %><br />
-      <%= f.submit "Create", class: "button" %>
+      <%= f.submit "Log in", class: "button" %>
     <% end %>
   </div>
 </div>

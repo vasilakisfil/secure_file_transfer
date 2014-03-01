@@ -1,8 +1,9 @@
 SecureFileTransfer::Application.routes.draw do
-  root "static_pages#login"
-  get "static_pages/login"
-  get "static_pages/logout"
-  get "static_pages/help"
+  resources :users, only: [:show, :edit, :update, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
+  root  'sessions#new'
+  match '/login',  to: 'sessions#new',         via: 'get'
+  match '/logout', to: 'sessions#destroy',     via: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
