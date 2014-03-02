@@ -13,15 +13,12 @@ class SessionsController < ApplicationController
       if !user
         user = create_new_user(params[:session][:username])
         flash[:login] = "Welcome new user #{user.username}"
-        redirect_to user
+        sign_in user
+        redirect_back_or user
       else
         flash[:login] = "Welcome user #{params[:session][:username]}"
-        if user.save
-          redirect_to user
-        else
-          flash[:error] = 'Could not create user'
-          render 'new'
-        end
+        sign_in user
+        redirect_back_or user
       end
     else
       flash[:wrong_credentials] = 'Invalid email/password combination'
@@ -33,7 +30,9 @@ class SessionsController < ApplicationController
 
   end
 
-  def delete
+  def destroy
+    sign_out
+    redirect_to root_path
   end
 
 

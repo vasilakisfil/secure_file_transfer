@@ -1,5 +1,5 @@
 SecureFileTransfer::Application.routes.draw do
-  resources :users, only: [:show, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   root  'sessions#new'
   match '/login',  to: 'sessions#new',         via: 'get'

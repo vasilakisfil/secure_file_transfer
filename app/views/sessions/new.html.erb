@@ -1,5 +1,8 @@
 <br />
 <br />
+<% if signed_in? %>
+  <p> You have already signed in </p>
+<% else %>
 <div class="row">
   <div class="small-6 small-centered columns">
     <%= form_for(:session, url: sessions_path, method: 'post') do |f| %>
@@ -13,3 +16,4 @@
     <% end %>
   </div>
 </div>
+<% end %>

@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
   validates :email, format: { with: VALID_EMAIL_REGEX },
     uniqueness: true, allow_nil: true
 
-
-
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

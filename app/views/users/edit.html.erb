@@ -1,0 +1,17 @@
+<% provide(:title, "Edit Profile") %>
+
+
+<div class="row">
+  <div class="small-6 small-centered columns">
+    <h1> Update your profile </h1>
+    <%= form_for(@user) do |f| %>
+      <%= f.label :username %><br />
+      <%= f.text_field :username, disabled: "disabled" %><br />
+      <%= f.label :name %><br />
+      <%= f.text_field :name %><br />
+      <%= f.label :email %><br />
+      <%= f.email_field :email %><br />
+      <%= f.submit "Save changes", class: "button" %>
+    <% end %>
+  </div>
+</div>
