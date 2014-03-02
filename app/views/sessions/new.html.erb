@@ -1,19 +1,19 @@
 <br />
 <br />
-<% if signed_in? %>
-  <p> You have already signed in </p>
-<% else %>
 <div class="row">
-  <div class="small-6 small-centered columns">
-    <%= form_for(:session, url: sessions_path, method: 'post') do |f| %>
-      <%= f.label :username %><br />
-      <%= f.text_field :username %><br />
-      <%= f.label :password %><br />
-      <%= f.text_field :password %><br />
-      <%= f.label :two_factor_authentication %><br />
-      <%= f.text_field :two_factor_authentication %><br />
-      <%= f.submit "Log in", class: "button" %>
+  <div class="small-6 small-centered columns text-center">
+    <% if signed_in? %>
+      <p> You have already signed in </p>
+    <% else %>
+      <%= form_for(:session, url: sessions_path, method: 'post') do |f| %>
+        <%= f.label :username %><br />
+        <%= f.text_field :username %><br />
+        <%= f.label :password %><br />
+        <%= f.text_field :password %><br />
+        <%= f.label :two_factor_authentication %><br />
+        <%= f.text_field :two_factor_authentication %><br />
+        <%= f.submit "Log in", class: "button" %>
+      <% end %>
     <% end %>
   </div>
 </div>
-<% end %>

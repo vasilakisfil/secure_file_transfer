@@ -18,5 +18,10 @@
       <br />
       <br />
       <p><%= @user.email %></p>
+      <br />
+      <br />
+      <p> Scan this image with Google Authenticator for TFA </p>
+      <%= render "qrcode" %>
+
   </div>
 </div>

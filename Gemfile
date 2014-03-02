@@ -31,6 +31,8 @@ group :doc do
 end
 
 gem 'foundation-rails'
+gem 'active_model_otp'
+gem 'rqrcode'
 
 group :test, :development do
   # Use sqlite3 as the database for Active Record

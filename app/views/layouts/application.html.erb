@@ -17,24 +17,29 @@
         <li class="name">
           <h1><a href="/">Secure File Transfer</a></h1>
         </li>
-        <!--<li class="toggle-topbar menu-icon"><a href="#">Menu</a></li> -->
       </ul>
 
       <section class="top-bar-section">
-      <ul class="left">
-        <li class="has-dropdown">
-          <a href="#">Other services</a>
-          <ul class="dropdown">
-            <li><a href="#">Voice over IP</a></li>
-          </ul>
-        </li>
-      </ul>
+        <ul class="left">
+          <li class="has-dropdown">
+            <a href="#">other services</a>
+            <ul class="dropdown">
+              <li><a href="#">voice over ip</a></li>
+            </ul>
+          </li>
+        </ul>
         <!-- Left Nav Section -->
         <ul class="right">
           <% if signed_in? %>
+            <li class="has-dropdown">
+              <%= link_to "Profile", current_user %>
+              <ul class="dropdown">
+                <li> <%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+              </ul>
+            </li>
             <li> <%= link_to "Log out", logout_path, method: "delete" %></li>
           <% else %>
-            <li> <%= link_to "Log in", login_path, method: "get" %></li>
+            <li> <%= link_to "Log in", login_path %></li>
           <% end %>
           <!--<li><a href="#">Left Nav Button</a></li> -->
         </ul>

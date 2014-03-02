@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_one_time_password
+
   before_save :downcase_email
   before_create :create_remember_token
 

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20140228215626) do
     t.string   "name"
     t.string   "email"
     t.string   "remember_token"
+    t.string   "otp_secret_key"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @qr = RQRCode::QRCode.new(
+      @user.provisioning_uri("Secure File transfer"), :size => 7, :level => :h
+    )
   end
 
   def index
