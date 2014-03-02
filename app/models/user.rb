@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_one_time_password
 
+  has_many :secure_files, dependent: :destroy
+
   before_save :downcase_email
   before_create :create_remember_token
 

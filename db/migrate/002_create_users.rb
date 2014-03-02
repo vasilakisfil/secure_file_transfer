@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :remember_token, index: true
       t.string :otp_secret_key
+      t.string :secure_file
 
       t.timestamps
     end

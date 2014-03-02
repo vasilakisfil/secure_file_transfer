@@ -30,9 +30,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'crypt19', '1.2.1', git: 'git@github.com:coupa/crypt19.git'
+
 gem 'foundation-rails'
 gem 'active_model_otp'
 gem 'rqrcode'
+gem 'carrierwave'
+gem 'carrierwave_securefile'
 
 group :test, :development do
   # Use sqlite3 as the database for Active Record
@@ -42,6 +46,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'pry-rails'
 end
 group :production do
   gem 'pg'

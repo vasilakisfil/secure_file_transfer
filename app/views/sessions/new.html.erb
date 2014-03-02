@@ -3,7 +3,12 @@
 <div class="row">
   <div class="small-6 small-centered columns text-center">
     <% if signed_in? %>
-      <p> You have already signed in </p>
+      <% if @user.secure_files.any? %>
+        <h3>Uploaded Files</h3>
+        <%= render @user.secure_files %>
+      <% else %>
+        <p> You have no uploaded files yet </p>
+      <% end %>
     <% else %>
       <%= form_for(:session, url: sessions_path, method: 'post') do |f| %>
         <%= f.label :username %><br />

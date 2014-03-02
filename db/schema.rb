@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228215626) do
+ActiveRecord::Schema.define(version: 3) do
+
+  create_table "secure_files", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -19,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140228215626) do
     t.string   "email"
     t.string   "remember_token"
     t.string   "otp_secret_key"
+    t.string   "secure_file"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
