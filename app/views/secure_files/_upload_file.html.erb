@@ -1,7 +1,7 @@
 <%= form_for(@secure_file) do |f| %>
   <!--  <%# render 'shared/error_messages', object: f.object %> -->
-  <%# f.text_area :users, placeholder: "Add users you want to share with..." %>
+  <%= f.text_area :shared_to, placeholder: "Add users you want to share with..." %>
   <%= f.text_area :description, placeholder: "Description..." %>
   <%= f.text_area :name, placeholder: "Name..." %>
-  <%= f.submit "Upload", class: "button" %>
+  <%= f.submit "Upload", :disable_with => "Please Wait...", class: "button" %>
 <% end %>

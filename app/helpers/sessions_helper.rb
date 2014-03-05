@@ -47,7 +47,6 @@ module SessionsHelper
 
   def store_location
     session[:return_to] = request.url if request.get?
-    puts "aaaaaaaaaaaaaaaaaa #{request.url}"
   end
 
   module ExternalAuthAPI

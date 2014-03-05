@@ -10,6 +10,15 @@ class SecureFilesController < ApplicationController
     @secure_file = current_user.secure_files.build(secure_file_params)
     if @secure_file.save
       flash[:success] = "File was uploaded!"
+      names = secure_file_params[:shared_to]
+      names = names.split
+      names.each do |name|
+        user = User.find_by(username: name)
+        user.secure_files.create(
+          name: secure_file_params[:name],
+          description: secure_file_params[:description]
+        )
+      end
       redirect_to home_path
     else
       flash[:failure] = "File failed to upload"
@@ -46,7 +55,7 @@ class SecureFilesController < ApplicationController
 
     # Before filters
     def secure_file_params
-      params.require(:secure_file).permit(:description, :name)
+      params.require(:secure_file).permit(:shared_to, :description, :name)
     end
 
     def signed_in_user
