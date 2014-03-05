@@ -1,27 +1,13 @@
 <% provide(:title, @user.username) %>
-<% flash.each do |key, value| %>
-  <p class="flash <%= key %>"><%= value %></p>
-<% end %>
 
 <div class="row">
   <div class="small-6 small-centered columns text-center">
     <h1>User Profile</h1>
-      <br />
-      <br />
       <p><%= gravatar_for @user %></p>
-      <br />
-      <br />
       <p><%= @user.username %></p>
-      <br />
-      <br />
       <p><%= @user.name %></p>
-      <br />
-      <br />
       <p><%= @user.email %></p>
-      <br />
-      <br />
       <p> Scan this image with Google Authenticator for TFA </p>
       <%= render "qrcode" %>
-
   </div>
 </div>

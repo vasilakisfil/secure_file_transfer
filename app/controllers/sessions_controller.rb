@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    if signed_in?
-      @user = current_user
-    end
   end
 
   def create
@@ -17,11 +14,11 @@ class SessionsController < ApplicationController
         user = create_new_user(params[:session][:username])
         flash[:login] = "Welcome new user #{user.username}"
         sign_in user
-        redirect_back_or user
+        redirect_back_or home_path
       else
         flash[:login] = "Welcome user #{params[:session][:username]}"
         sign_in user
-        redirect_back_or user
+        redirect_back_or home_path
       end
     else
       flash[:wrong_credentials] = 'Invalid email/password combination'

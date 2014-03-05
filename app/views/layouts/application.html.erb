@@ -45,7 +45,14 @@
         </ul>
       </section>
     </nav>
+
+    <% flash.each do |key, value| %>
+      <p class="flash <%= key %>"><%= value %></p>
+    <% end %>
+
     <%= yield %>
+
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
