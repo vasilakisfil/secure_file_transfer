@@ -1,6 +1,6 @@
 class SecureFilesController < ApplicationController
-  before_action :signed_in_user, only: [:edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :signed_in_user
+  before_action :correct_user
 
   def new
     @secure_file = current_user.secure_files.build
@@ -29,6 +29,17 @@ class SecureFilesController < ApplicationController
     @user = current_user
   end
 
+  def destroy
+    if @secure_file
+      @secure_file.destroy
+      flash[:notice] = "Your file was deleted successfully."
+    else
+      redirect_to home_path
+      flash[:notice] = "Patience: you only need to press delete once"
+    end
+    redirect_to home_path
+  end
+
 
 
   private
@@ -46,7 +57,7 @@ class SecureFilesController < ApplicationController
     end
 
     def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
+      @secure_file = current_user.secure_files.find_by(id: params[:id])
+      #redirect_to(root_path) if @secure_file.nil?
     end
 end

@@ -1,8 +1,14 @@
-<% if @user.secure_files.any? %>
-  <h3> <%= @user.secure_files.count %> Uploaded Files</h3>
-  <ol>
-    <%= render @user.secure_files %>
-  </ol>
-<% else %>
-  <p> You have no uploaded files yet </p>
-<% end %>
+<br />
+<br />
+<div class="row">
+  <div class="small-6 small-centered columns text-center">
+    <% if @user.secure_files.any? %>
+      <h3> <%= @user.secure_files.count %> Uploaded Files</h3>
+      <ol>
+        <%= render @user.secure_files %>
+      </ol>
+    <% else %>
+      <p> You have no shared files yet </p>
+    <% end %>
+  </div>
+</div>

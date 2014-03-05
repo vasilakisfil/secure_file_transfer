@@ -4,7 +4,7 @@
   <div class="small-6 small-centered columns text-center">
     <% if signed_in? %>
       <p> Hi user <%= @user.username %>!
-      <p> You have <%= link_to "#{@user.secure_files.count} files", secure_files_path  %> uploaded! </p>
+      <p> You have <%= link_to "#{@user.secure_files.count} files", secure_files_path  %> shared! </p>
       <br />
       <br />
       <p> Wanna upload and share a file? </p>

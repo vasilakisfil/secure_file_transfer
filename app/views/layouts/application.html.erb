@@ -15,7 +15,11 @@
     <nav class="top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/">Secure File Transfer</a></h1>
+          <% if @secure_voip %>
+            <h1><a href="/">Secure Voice over IP</a></h1>
+          <% else %>
+            <h1><a href="/">Secure File Transfer</a></h1>
+          <% end %>
         </li>
       </ul>
 
@@ -24,7 +28,11 @@
           <li class="has-dropdown">
             <a href="#">other services</a>
             <ul class="dropdown">
-              <li><a href="#">voice over ip</a></li>
+              <% if @secure_voip %>
+              <li><%= link_to "Secure File Transfer", home_path %></li>
+              <% else %>
+              <li><%= link_to "Secure VoIP", new_secure_voip_path %></li>
+              <% end %>
             </ul>
           </li>
         </ul>

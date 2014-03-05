@@ -3,4 +3,5 @@
   <span class="timestamp">
     posted <%= time_ago_in_words(secure_file.created_at) %> ago.
   </span>
+  <%= link_to("delete", secure_file, method: :delete, title: secure_file.name) %>
 </li>
