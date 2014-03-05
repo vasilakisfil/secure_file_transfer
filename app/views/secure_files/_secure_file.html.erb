@@ -1,7 +1,9 @@
 <li>
-<span class="content"><%= secure_file.name %></span>
+  <div class="content">Name: <%= secure_file.name %></span>
+  <div class="content">Description: <%= secure_file.description %></span>
+  <div class="content">Shared by: <%= secure_file.shared_by %></span>
   <span class="timestamp">
-    posted <%= time_ago_in_words(secure_file.created_at) %> ago.
+    <%= time_ago_in_words(secure_file.created_at) %> ago.
   </span>
-  <%= link_to("delete", secure_file, method: :delete, title: secure_file.name) %>
+  <div><%= link_to("delete?", secure_file, method: :delete, title: secure_file.name) %></div>
 </li>

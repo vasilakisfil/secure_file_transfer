@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 3) do
     t.string   "name"
     t.string   "description"
     t.string   "shared_to"
+    t.boolean  "seen"
+    t.string   "shared_by"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

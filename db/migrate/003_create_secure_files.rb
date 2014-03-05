@@ -5,6 +5,8 @@ class CreateSecureFiles < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :shared_to
+      t.boolean :seen
+      t.string :shared_by
       t.belongs_to :user
 
       t.timestamps

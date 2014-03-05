@@ -16,7 +16,9 @@ class SecureFilesController < ApplicationController
         user = User.find_by(username: name)
         user.secure_files.create(
           name: secure_file_params[:name],
-          description: secure_file_params[:description]
+          description: secure_file_params[:description],
+          seen: false,
+          shared_by: current_user.username
         )
       end
       redirect_to home_path
