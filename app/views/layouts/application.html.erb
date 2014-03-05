@@ -16,9 +16,9 @@
       <ul class="title-area">
         <li class="name">
           <% if @secure_voip %>
-            <h1><a href="/">Secure Voice over IP</a></h1>
+            <h1><%= link_to "Secure VoIP", new_secure_voip_path %></h1>
           <% else %>
-            <h1><a href="/">Secure File Transfer</a></h1>
+            <h1><%= link_to "Secure File Transfer", home_path %></h1>
           <% end %>
         </li>
       </ul>
