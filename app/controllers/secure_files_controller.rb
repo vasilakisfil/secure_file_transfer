@@ -13,13 +13,18 @@ class SecureFilesController < ApplicationController
       names = secure_file_params[:shared_to]
       names = names.split
       names.each do |name|
+        next if name.eql? current_user.username
         user = User.find_by(username: name)
-        user.secure_files.create(
-          name: secure_file_params[:name],
-          description: secure_file_params[:description],
-          seen: false,
-          shared_by: current_user.username
-        )
+        if user
+          user.secure_files.create(
+            name: secure_file_params[:name],
+            description: secure_file_params[:description],
+            seen: false,
+            shared_by: current_user.username
+          )
+        else
+          flash[:notice] = "Could not find user #{name}"
+        end
       end
       redirect_to home_path
     else

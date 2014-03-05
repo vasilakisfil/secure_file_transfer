@@ -53,10 +53,14 @@
         </ul>
       </section>
     </nav>
-
+    <br />
+<div class="row">
+  <div class="small-10 small-centered columns text-center">
     <% flash.each do |key, value| %>
       <p class="flash <%= key %>"><%= value %></p>
     <% end %>
+  </div>
+</div>
 
     <%= yield %>
 

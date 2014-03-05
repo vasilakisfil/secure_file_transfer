@@ -1,9 +1,15 @@
 <%= form_for(:session, url: sessions_path, method: 'post') do |f| %>
+  <div class="row"><div class="small-12 small-centered columns">
   <%= f.label :username %><br />
   <%= f.text_field :username %><br />
+  </div></div>
+  <div class="row"><div class="small-12 small-centered columns">
   <%= f.label :password %><br />
   <%= f.text_field :password %><br />
-  <%= f.label :two_factor_authentication %><br />
-  <%= f.text_field :two_factor_authentication %><br />
+  </div></div>
+  <div class="row"><div class="small-3 small-centered columns">
+  <%= f.label :two_factor_authentication %>
+  <%= f.text_field :two_factor_authentication %>
+  </div></div>
   <%= f.submit "Log in", class: "button" %>
 <% end %>
