@@ -1,7 +1,10 @@
 <li>
-  <div class="content">Name: <%= secure_file.name %></span>
-  <div class="content">Description: <%= secure_file.description %></span>
-  <div class="content">Shared by: <%= secure_file.shared_by %></span>
+  <div class="content">
+    <%= link_to "#{secure_file.file.url.split("/").last}",  secure_file.file.url %>
+  </div>
+  <div class="content">Name: <%= secure_file.name %></div>
+  <div class="content">Description: <%= secure_file.description %></div>
+  <div class="content">Shared by: <%= secure_file.shared_by %></div>
   <span class="timestamp">
     <%= time_ago_in_words(secure_file.created_at) %> ago.
   </span>

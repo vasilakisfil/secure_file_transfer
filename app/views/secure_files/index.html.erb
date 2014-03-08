@@ -5,7 +5,7 @@
     <% if @user.secure_files.any? %>
       <h3> <%= @user.secure_files.count %> Uploaded Files</h3>
       <ol>
-        <%= render @user.secure_files %>
+        <%= render @user.secure_files.order(created_at: :desc) %>
       </ol>
     <% else %>
       <p> You have no shared files yet </p>

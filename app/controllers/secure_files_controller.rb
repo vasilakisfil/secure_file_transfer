@@ -17,6 +17,7 @@ class SecureFilesController < ApplicationController
         user = User.find_by(username: name)
         if user
           user.secure_files.create(
+            file: secure_file_params[:file],
             name: secure_file_params[:name],
             description: secure_file_params[:description],
             seen: false,
@@ -62,7 +63,7 @@ class SecureFilesController < ApplicationController
 
     # Before filters
     def secure_file_params
-      params.require(:secure_file).permit(:shared_to, :description, :name)
+      params.require(:secure_file).permit(:file, :shared_to, :description, :name)
     end
 
     def signed_in_user

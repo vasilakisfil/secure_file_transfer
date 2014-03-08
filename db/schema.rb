@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 3) do
 
   create_table "secure_files", force: true do |t|
+    t.string   "file"
     t.string   "name"
     t.string   "description"
     t.string   "shared_to"
