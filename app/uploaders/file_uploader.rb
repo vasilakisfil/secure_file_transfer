@@ -1,7 +1,28 @@
 # encoding: utf-8
 
 class FileUploader < CarrierWave::Uploader::Base
+  process :secure_file
 
+  def secure_file
+    #CarrierWave::SecureFile::Uploader.secure_file(self, self.file.path.to_s)
+    #puts "============================================================"
+    #puts self.description
+    #puts "============================================================"
+  end
+=begin
+  def file
+    decrypted_file = CarrierWave::SecureFile::Downloader.call(
+      FileUploader,
+      SecureFile.find(params[:id]),
+      :file
+    )
+    send_file(
+      descrypted_file[:file],
+      :content_type => decrypted_file[:content_type]
+    )
+    File.unlink decrypted_file[:file]
+  end
+=end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

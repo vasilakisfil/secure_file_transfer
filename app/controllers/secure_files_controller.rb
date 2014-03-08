@@ -58,9 +58,7 @@ class SecureFilesController < ApplicationController
   end
 
 
-
   private
-
     # Before filters
     def secure_file_params
       params.require(:secure_file).permit(:file, :shared_to, :description, :name)
