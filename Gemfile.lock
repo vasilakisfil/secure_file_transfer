@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:coupa/crypt19.git
+  remote: https://github.com/coupa/crypt19.git
   revision: ecaff39fd4d840675bf68b8bef53f3b730ad4b64
   specs:
     crypt19 (1.2.1)

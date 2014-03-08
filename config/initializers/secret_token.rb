@@ -23,6 +23,7 @@ def secure_token
   end
 end
 =end
+=begin
 if !Rails.env.production?
   token_file = Rails.root.join('.secret')
   secure_token = File.read(token_file).chomp
@@ -30,3 +31,5 @@ if !Rails.env.production?
 else
   SecureFileTransfer::Application.config.secret_key_base = ENV['SECURE_TOKEN']
 end
+=end
+SecureFileTransfer::Application.config.secret_key_base = ENV['SECURE_TOKEN']

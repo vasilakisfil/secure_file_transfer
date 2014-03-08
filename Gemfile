@@ -30,7 +30,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'crypt19', '1.2.1', git: 'git@github.com:coupa/crypt19.git'
+gem 'crypt19', '1.2.1', git: 'https://github.com/coupa/crypt19.git'
 
 gem 'foundation-rails'
 gem 'active_model_otp'
