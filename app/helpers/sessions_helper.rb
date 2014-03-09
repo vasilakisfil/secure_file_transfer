@@ -52,6 +52,11 @@ module SessionsHelper
   module ExternalAuthAPI
     # this method should be overrided by rails app
     def self.authenticate_user(username, password)
+      success = false
+      if Rubius::Authenticator.authenticate('username1', 'password')
+        success ==true
+      end
+=begin
       #should call here the RADIUS helper instead
       success = false
       if username == 'username' && password == 'password'
@@ -69,6 +74,7 @@ module SessionsHelper
       elsif username == 'test1' && password == 'test1'
         success = true
       end
+=end
     end
   end
 end
