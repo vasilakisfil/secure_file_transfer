@@ -140,6 +140,8 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
+    rubius (0.0.5)
+      rubius
     rubyzip (1.1.0)
     sass (3.3.0)
       rake
@@ -204,6 +206,7 @@ DEPENDENCIES
   rails_12factor
   rqrcode
   rspec-rails
+  rubius
   sass-rails (~> 4.0.0)
   sdoc
   selenium-webdriver

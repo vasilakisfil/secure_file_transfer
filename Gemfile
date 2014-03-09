@@ -38,6 +38,7 @@ gem 'rqrcode'
 gem 'carrierwave'
 gem 'carrierwave_securefile'
 gem 'pry-rails'
+gem 'rubius'
 
 group :test, :development do
   # Use sqlite3 as the database for Active Record
