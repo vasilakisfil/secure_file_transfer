@@ -24,7 +24,7 @@ class SecureFilesController < ApplicationController
             shared_by: current_user.username
           )
         else
-          flash[:notice] = "Could not find user #{name}"
+          flash[name] = "Could not find user #{name}"
         end
       end
       redirect_to home_path
