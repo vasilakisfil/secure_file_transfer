@@ -3,7 +3,7 @@ SecureFileTransfer::Application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :secure_files
   resources :secure_voip, only: [:new]
-  root  'static_pages#home'
+  root  'sessions#new'
   match '/login',  to: 'sessions#new',         via: 'get'
   match '/logout', to: 'sessions#destroy',     via: 'delete'
   get '/home', to: 'static_pages#home'

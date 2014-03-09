@@ -32,4 +32,4 @@ else
   SecureFileTransfer::Application.config.secret_key_base = ENV['SECURE_TOKEN']
 end
 =end
-SecureFileTransfer::Application.config.secret_key_base = ENV['SECURE_TOKEN']
+SecureFileTransfer::Application.config.secret_key_base = "4d257637b48eaa1427c879a39d5d8a1c34901e3fc9e383d545623efad957f14e226ffeb89c641dd7a750090faa878c4ebd77b41aec74509fbad757939a1ceee9"

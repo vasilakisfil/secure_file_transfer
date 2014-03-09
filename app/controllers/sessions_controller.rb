@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    puts request.env['SSL_CLIENT_CERT']
   end
 
   def create
@@ -7,6 +8,9 @@ class SessionsController < ApplicationController
       params[:session][:username],
       params[:session][:password]
     )
+    request.headers.each do |key, value|
+      puts "#{key} --- #{value}"
+    end
     if(!params[:session][:two_factor_authentication].blank? && !params[:session][:username].blank?)
       @otp_auth = true
     end

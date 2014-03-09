@@ -16,3 +16,5 @@
 /tmp
 .secret
 /public/uploads
+/public/assets
+/vendor/bundle
