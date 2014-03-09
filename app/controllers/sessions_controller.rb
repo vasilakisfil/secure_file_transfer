@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   def new
     puts request.env['SSL_CLIENT_CERT']
+    ca = OpenSSL::X509::Certificate.new(File.read('cacert.pem'))
+    lic = OpenSSL::X509::Certificate.new(File.read('04.pem'))
+    puts lic.verify( ca.public_key )
   end
 
   def create
