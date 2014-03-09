@@ -1,9 +1,29 @@
 class SessionsController < ApplicationController
   def new
-    puts request.env['SSL_CLIENT_CERT']
-    ca = OpenSSL::X509::Certificate.new(File.read('cacert.pem'))
-    lic = OpenSSL::X509::Certificate.new(File.read('04.pem'))
-    puts lic.verify( ca.public_key )
+    request.headers.each do |key, value|
+      puts "#{key} --- #{value}"
+    end
+    request.env.each do |key, value|
+      puts "#{key} --- #{value}"
+    end
+    if !request.env['SSL_CLIENT_CERT'].blank?
+      ca = OpenSSL::X509::Certificate.new(File.read('cacert.pem'))
+      lic = OpenSSL::X509::Certificate.new(request.env['SSL_CLIENT_CERT']) if !request.env['SSL_CLIENT_CERT'].blank?
+      if lic.verify( ca.public_key )
+        @ssl = "Logging in with valid ssl client cert, no need for 2FA"
+        session[:two_factor_auth] = false
+        @otp_disabled = true
+      else
+        @ssl = "Invalid ssl client cert, falling back to 2FA"
+        session[:two_factor_auth] = true
+        @otp_disabled = false
+      end
+    else
+      @ssl = "No ssl client cert, falling back to 2FA"
+        session[:two_factor_auth] = true
+        @otp_disabled = false
+    end
+
   end
 
   def create
@@ -14,8 +34,10 @@ class SessionsController < ApplicationController
     request.headers.each do |key, value|
       puts "#{key} --- #{value}"
     end
-    if(!params[:session][:two_factor_authentication].blank? && !params[:session][:username].blank?)
+    if session[:two_factor_auth]
       @otp_auth = true
+    else
+      @otp_auth = false
     end
     if valid_credits
       user = User.find_by(username: params[:session][:username])
