@@ -1,2 +1,2 @@
-# Initialize Radius Authentication
+# Initialize Rubius
 Rubius::Rails.init

@@ -54,7 +54,7 @@ module SessionsHelper
     def self.authenticate_user(username, password)
       success = false
       if Rubius::Authenticator.authenticate('username1', 'password')
-        success ==true
+        success = true
       end
 =begin
       #should call here the RADIUS helper instead
