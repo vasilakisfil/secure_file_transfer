@@ -1,16 +1,12 @@
 # encoding: utf-8
 
 class FileUploader < CarrierWave::Uploader::Base
-  process :secure_file
 
-  def secure_file
-    #CarrierWave::SecureFile::Uploader.secure_file(self, self.file.path.to_s)
-    #puts "============================================================"
-    #puts self.description
-    #puts "============================================================"
+  def encrypt_file
+    CarrierWave::SecureFile::Uploader.secure_file(self, self.file.path.to_s)
   end
-=begin
-  def file
+
+  def decrypt_file
     decrypted_file = CarrierWave::SecureFile::Downloader.call(
       FileUploader,
       SecureFile.find(params[:id]),
@@ -22,7 +18,7 @@ class FileUploader < CarrierWave::Uploader::Base
     )
     File.unlink decrypted_file[:file]
   end
-=end
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -59,9 +55,9 @@ class FileUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+     %w(zip)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

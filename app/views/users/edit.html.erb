@@ -5,6 +5,7 @@
   <div class="small-6 small-centered columns">
     <h1> Update your profile </h1>
     <%= form_for(@user) do |f| %>
+      <%= render 'error_messages' %>
       <%= f.label :username %><br />
       <%= f.text_field :username, disabled: "disabled" %><br />
       <%= f.label :name %><br />

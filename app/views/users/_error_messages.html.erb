@@ -1,0 +1,14 @@
+<% if @user.errors.any? %>
+<div data-alert class="alert-box warning round">
+  The form contains <%= pluralize(@user.errors.count, "error") %>.
+  <a href="#" class="close">&times;</a>
+</div>
+<div data-alert class="alert-box warning round">
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li>* <%= msg %></li>
+  <% end %>
+  </ul>
+  <a href="#" class="close">&times;</a>
+</div>
+<% end %>

@@ -56,25 +56,6 @@ module SessionsHelper
       if Rubius::Authenticator.authenticate('username1', 'password')
         success = true
       end
-=begin
-      #should call here the RADIUS helper instead
-      success = false
-      if username == 'username' && password == 'password'
-        success = true
-      elsif username == 'username1' && password == 'password'
-        success = true
-      elsif username == 'username2' && password == 'password'
-        success = true
-      elsif username == 'username3' && password == 'password'
-        success = true
-      elsif username == 'username4' && password == 'password'
-        success = true
-      elsif username == 'test' && password == 'test'
-        success = true
-      elsif username == 'test1' && password == 'test1'
-        success = true
-      end
-=end
     end
   end
 end
