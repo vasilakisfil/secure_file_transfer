@@ -1,4 +1,5 @@
 <%= form_for(@secure_file) do |f| %>
+  <%= render 'error_messages' %>
   <%= f.label :file %>
   <%= f.file_field :file %>
   <%= f.text_area :name, placeholder: "Name..." %>

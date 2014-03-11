@@ -29,8 +29,7 @@ class SecureFilesController < ApplicationController
       end
       redirect_to home_path
     else
-      flash[:failure] = "File failed to upload"
-      redirect_to home_path
+      render 'new'
     end
   end
 

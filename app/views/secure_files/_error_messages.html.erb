@@ -1,0 +1,17 @@
+<% if @secure_file.errors.any? %>
+<div data-alert class="alert-box warning round">
+<p>
+  <%= pluralize(@secure_file.errors.count, "error") %>
+  prohibited this content from being saved:
+  <a href="#" class="close">&times;</a>
+</p>
+</div>
+<div data-alert class="alert-box warning round">
+<ul>
+  <% @secure_file.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <a href="#" class="close">&times;</a>
+  <% end %>
+</ul>
+</div>
+<% end %>
