@@ -53,7 +53,7 @@ module SessionsHelper
     # this method should be overrided by rails app
     def self.authenticate_user(username, password)
       success = false
-      if Rubius::Authenticator.authenticate('username1', 'password')
+      if Rubius::Authenticator.authenticate(username, password)
         success = true
       end
     end

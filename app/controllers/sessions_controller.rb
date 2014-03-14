@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       params[:session][:password]
     )
     request.headers.each do |key, value|
-      puts "#{key} --- #{value}"
+      #puts "#{key} --- #{value}"
     end
     if session[:two_factor_auth]
       @otp_auth = true
